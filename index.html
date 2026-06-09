@@ -2,8 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>REMIX.AI - Trợ lý công nghệ thông minh</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- PWA Primary Settings -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0C447C" />
+    
+    <!-- iOS Support & Customisation -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="REMIX.AI" />
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=192&q=80" />
+    
+    <!-- Service Worker Registration -->
+    <script>
+      const swCode = `
+        const CACHE = 'remix-v1'
+        self.addEventListener('install', e => {
+          e.waitUntil(
+            caches.open(CACHE).then(c =>
+              c.addAll(['/', '/index.html'])
+            )
+          )
+        })
+        self.addEventListener('fetch', e => {
+          e.respondWith(
+            caches.match(e.request).then(
+              r => r || fetch(e.request)
+            )
+          )
+        })
+      `
+      const blob = new Blob([swCode], {type: 'application/javascript'})
+      const swUrl = URL.createObjectURL(blob)
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register(swUrl)
+            .then(() => console.log('SW registered'))
+            .catch(e => console.log('SW error:', e))
+        });
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

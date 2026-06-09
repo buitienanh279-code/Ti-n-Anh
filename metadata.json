@@ -1,6 +1,6 @@
 {
-  "name": "Remix: AI Sales Assistant",
+  "name": "AI tư vấn mua bán hàng",
   "description": "An enthusiastic AI assistant to help customers find the perfect products from your store.",
-  "requestFramePermissions": [],
-  "majorCapabilities": []
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

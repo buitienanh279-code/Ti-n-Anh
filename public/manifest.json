@@ -1,0 +1,23 @@
+{
+  "short_name": "REMIX.AI",
+  "name": "REMIX.AI - Trợ lý mua sắm công nghệ thông minh",
+  "description": "Nền tảng mua sắm và tư vấn công nghệ thông minh tích hợp trí tuệ nhân tạo.",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=192&q=80",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=512&q=80",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0C447C",
+  "theme_color": "#0C447C",
+  "display": "standalone",
+  "orientation": "portrait",
+  "status_bar": "default"
+}
